@@ -20,6 +20,6 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ubuntu
           key: ${{ secrets.EC2_KEY }}
-          source: "frontend/index.html,frontend/photos"
+          source: "frontend/*"
           target: "/var/www/html"
           rm: false
