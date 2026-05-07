@@ -31,7 +31,7 @@ resource "aws_security_group" "app_sg" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["73.181.132.170/32"]
+    cidr_blocks = ["0.0.0.0/0"] # temporary, replace with 73.181.132.170/32
   }
 
   ingress {
