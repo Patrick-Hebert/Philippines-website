@@ -79,11 +79,15 @@ resource "aws_instance" "app_server" {
   user_data = <<-EOF
               #!/bin/bash
               apt update -y
-              apt install -y python3
+              apt install -y nginx
 
               echo "Hello from Terraform EC2" > index.html
 
-              python3 -m http.server 80
+              systemctl enable nginx
+              systemctl start nginx
+
+              mkdir -p /var/www/html
+              chown -R ubuntu:ubuntu /var/www/html 
               EOF
 
   tags = {
